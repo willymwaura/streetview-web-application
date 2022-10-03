@@ -21,3 +21,4 @@ urllib3==1.26.8
 djoser==2.1.0
 dj-database-url==0.5.0
 psycopg2==2.9.3
+random-address===1.1.1
