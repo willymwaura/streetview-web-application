@@ -1,0 +1,29 @@
+
+header{
+    font-size:30px ;
+    font-family: 'Courier New', Courier, monospace;
+    height: 45px;
+    width: 1024px;
+    text-align: center;
+}
+main{
+    height: auto;
+    width: auto;
+    background-color: antiquewhite;
+    text-align: auto;
+}
+p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:30px ;
+}
+h2{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+}
+h1{
+    font-size: 30px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
