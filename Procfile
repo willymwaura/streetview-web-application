@@ -1,1 +1,1 @@
-web: gunicorn static.wsgi --log-file -
+web: gunicorn streetview.wsgi --log-file -
