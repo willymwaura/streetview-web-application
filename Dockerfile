@@ -22,5 +22,7 @@ COPY . .
 RUN adduser -D myuser
 USER myuser
 
-# run gunicorn
-CMD gunicorn streetview.wsgi:application --bind 0.0.0.0:$PORT
+
+
+CMD gunicorn streetview.wsgi:application --bind 0.0.0.0:8080
+
