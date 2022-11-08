@@ -1,16 +1,4 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: django
-  labels:
-    app: django
-spec:
-  type: LoadBalancer
-  selector:
-    app: django
-  ports:
-    - port: 8000
-      targetPort: 8080
+
 
 apiVersion: apps/v1
 kind: Deployment
