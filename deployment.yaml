@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: django-app
+  name: street-view
   labels:
     app: django
 spec:
@@ -18,5 +18,5 @@ spec:
         - image: 12345678hacker/ant_view:latest
           name: django
           ports:
-            - containerPort: 8000
+            - containerPort: 8080
               name: gunicorn

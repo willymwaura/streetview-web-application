@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: django
+  name: street-view-service
   labels:
     app: django
 spec:
@@ -9,5 +9,5 @@ spec:
   selector:
     app: django
   ports:
-    - port: 8000
-      targetPort: 8000
+    - port: 8080
+      targetPort: 8080
