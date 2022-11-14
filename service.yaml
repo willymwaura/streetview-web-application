@@ -5,9 +5,9 @@ metadata:
   labels:
     app: django
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: django
   ports:
     - port: 8000
-      targetPort: 8080
+      targetPort: 8000
