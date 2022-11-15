@@ -14,9 +14,6 @@ def search(request):
     return render(request,"search.html")
     
 
-def posts(request,pk):
-    posts=Search.objects.get(id=pk)
-    return render (request,"posts.html",{"posts":posts})
 def test(request):
     #save the word entered
     a=request.POST['name']
