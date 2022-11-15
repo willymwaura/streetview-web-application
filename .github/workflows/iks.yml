@@ -58,7 +58,7 @@ jobs:
           
     # Push the image to IBM Container Registry or use existing image
     
-    # Deploy the Docker image to the IKS cluster using yaml files
+    # Deploy the Docker image to the IKS cluster using yaml 
     - name: Deploy to IKS
       run: |
         ibmcloud ks cluster config --cluster $IKS_CLUSTER
