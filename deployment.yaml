@@ -1,22 +1,39 @@
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: street-view
   labels:
-    app: django
+    app: street-view
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: django
+      app: street-view
   template:
     metadata:
       labels:
-        app: django
+        app: street-view
     spec:
       containers:
-        - image: 12345678hacker/ant_view:latest
-          name: django
+        - image: 12345678hacker/street-view:1.0.0
+          name: street-view
           ports:
             - containerPort: 8080
               name: gunicorn
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: street-service
+  labels:
+    app: street-view
+spec:
+  type: NodePort
+  selector:
+    app: street-view
+  ports:
+    - port: 8080
