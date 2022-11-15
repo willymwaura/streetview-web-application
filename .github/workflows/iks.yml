@@ -42,6 +42,7 @@ jobs:
         ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g default
         ibmcloud cr region-set "${IBM_CLOUD_REGION}"
         ibmcloud cr login
+        ibmcloud target -g RESOURCE_GROUP
     # Build the Docker image or use existing docker image
     
           
