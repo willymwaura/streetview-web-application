@@ -1,41 +1,34 @@
-# This workflow will build a docker container, publish it to IBM Container Registry, and deploy it to IKS when a release is created
+# This workflow will build a docker container, publish it to IBM Container Registry, and deploy it to IKS when there is a push to the "master" branch.
 #
 # To configure this workflow:
 #
 # 1. Ensure that your repository contains a Dockerfile
 # 2. Setup secrets in your repository by going to settings: Create ICR_NAMESPACE and IBM_CLOUD_API_KEY
 # 3. Change the values for the IBM_CLOUD_REGION, REGISTRY_HOSTNAME, IMAGE_NAME, IKS_CLUSTER, DEPLOYMENT_NAME, and PORT
-# 4.customize your iks.yml ...
+
 name: Build and Deploy to IKS
 
 on:
-  # opening a pull request to master and develop branch will be a trigger
-  pull_request:
-    branches:
-      - master
-  # any code pushed to master and develop branch will also be a trigger
   push:
-    branches:
-      - master
-      
+    branches: [ "master" ]
 
 # Environment variables available to all jobs and steps in this workflow
 env:
   GITHUB_SHA: ${{ github.sha }}
   IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
-  IBM_CLOUD_REGION: eu-de 
-  IKS_CLUSTER: cdl38daf03e32ss1i450 # name or id of cluster
+  IBM_CLOUD_REGION: eu-de
+  IKS_CLUSTER: cdl38daf03e32ss1i450
   DEPLOYMENT_NAME: street-view
-  
 
 jobs:
   setup-build-publish-deploy:
     name: Setup, Build, Publish, and Deploy
     runs-on: ubuntu-latest
+    environment: production
     steps:
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     # Download and Install IBM Cloud CLI
     - name: Install IBM Cloud CLI
@@ -51,18 +44,17 @@ jobs:
         ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g default
         ibmcloud cr region-set "${IBM_CLOUD_REGION}"
         ibmcloud cr login
-        ibmcloud target -g willy
-    # Build the Docker image or use existing docker image
-    
-          
-    # Push the image to IBM Container Registry or use existing image
-    
-    # Deploy the Docker image to the IKS cluster using yaml 
+    # Build the Docker image
+
+
+    # Push the image to IBM Container Registry
+  
+    # Deploy the Docker image to the IKS cluster
     - name: Deploy to IKS
       run: |
         ibmcloud ks cluster config --cluster $IKS_CLUSTER
         kubectl config current-context
-
+       
         kubectl apply -f deployment.yaml
         kubectl rollout status deployment/$DEPLOYMENT_NAME
-        
+        kubectl get services -o wide
