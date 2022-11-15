@@ -5,7 +5,7 @@
 # 1. Ensure that your repository contains a Dockerfile
 # 2. Setup secrets in your repository by going to settings: Create ICR_NAMESPACE and IBM_CLOUD_API_KEY
 # 3. Change the values for the IBM_CLOUD_REGION, REGISTRY_HOSTNAME, IMAGE_NAME, IKS_CLUSTER, DEPLOYMENT_NAME, and PORT
-# 4.customize your iks.yml
+# 4.customize your iks.yml .
 name: Build and Deploy to IKS
 
 on:
@@ -51,7 +51,7 @@ jobs:
         ibmcloud login --apikey "${IBM_CLOUD_API_KEY}" -r "${IBM_CLOUD_REGION}" -g default
         ibmcloud cr region-set "${IBM_CLOUD_REGION}"
         ibmcloud cr login
-        ibmcloud target -g Default
+        ibmcloud target -g willy
     # Build the Docker image or use existing docker image
     
           
