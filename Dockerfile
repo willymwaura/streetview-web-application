@@ -17,6 +17,6 @@ RUN pip install -r requirements.txt
 
 # copy project
 COPY . .
-
+#run the server
 CMD gunicorn streetview.wsgi:application --bind 0.0.0.0:8080
 
