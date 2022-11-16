@@ -4,6 +4,8 @@
 <head>
 		
 	<link rel="stylesheet" type="text/css" href=" {% static 'search.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet" />
 	
 </head>
 <body>
@@ -11,14 +13,16 @@
    
   
  
-        <form method="post" action='test' enctype="multipart/form-data">
+<form method="post" action='test' enctype="multipart/form-data" class="search-bar">
+                
      
          
      {% csrf_token %}
      
-      <input type="text" placeholder="enter place to visit..." name="name">
-      <input type="submit" placeholder="submit">
-  
+     <input type="search" name="name" pattern=".*\S.*" required>
+     <button class="search-btn" type="submit">
+             <span>Search</span>
+     </button>
      </form>
          
          
