@@ -17,8 +17,7 @@ def search(request):
 def test(request):
     #save the word entered
     a=request.POST['name']
-    e=Search(title=a)
-    e.save()
+    
     print(a)
     #find the long and latitude of the place
     url="http://api.positionstack.com/v1/forward?access_key="
