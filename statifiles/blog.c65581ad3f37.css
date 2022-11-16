@@ -1,0 +1,82 @@
+body{
+    background: black;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .1em
+  }
+  
+  p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  
+  a{
+    display: block;
+    color: white;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  a::after{
+    content: "";
+    background: white;
+      mix-blend-mode: exclusion;
+    width: calc(100% + 20px);
+    height: 0;
+    position: absolute;
+    bottom: -4px;
+    left: -10px;
+      transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  }
+  
+  a:hover::after{
+      height: calc(100% + 8px)
+  }
+  
+  /* The End */
+  
+  .note{
+    top: 60%;
+    bottom: 0;
+    color: #ddd;
+    font-size: 13px;
+    text-transform: none;
+    font-weight: 300;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  h1{
+    color: #484848;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: 2%;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+  }
+  h1 span{
+    transition: .5s linear
+  }
+  h1:hover span:nth-child(1){
+    margin-right: 2%
+  }
+  h1:hover span:nth-child(1):after{
+    content: "'";
+  }
+  h1:hover span:nth-child(2){
+    margin-left: 3%
+  }
+  h1:hover span{
+    color: rgba(255, 255, 255, 0.562);
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #fff, 
+                 0 0 50px #fff;
+  }
