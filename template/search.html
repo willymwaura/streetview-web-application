@@ -11,13 +11,13 @@
    
   
  
-        <form onsubmit="event.preventDefault();" method="post" action='test' enctype="multipart/form-data">
+        <form method="post" action='test' enctype="multipart/form-data">
      
          
      {% csrf_token %}
-     <div class="search-box">
-      <button class="btn-search"><i class="fas fa-search"></i></button>
-      <input type="text" class="input-search" placeholder="enter place to visit..." name="name">
+     
+      <input type="text" placeholder="enter place to visit..." name="name">
+      <input type="submit" placeholder="submit">
   
      </form>
          
