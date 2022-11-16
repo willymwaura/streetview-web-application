@@ -28,7 +28,7 @@ def test(request):
     
     response=requests.get(url).json()
     
-    long=response["data"][0]['longitude']
+    long=response['data'][0]['longitude']
     lat=response['data'][0]['latitude']
    
     url1="https://www.google.com/maps/@?api=1&map_action=pano&pano=tu510ie_z4ptBZYo2BGEJg&viewpoint=48.857832%2C2.295226&heading=-45&pitch=38&fov=80"
