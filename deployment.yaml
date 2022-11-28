@@ -17,7 +17,7 @@ spec:
         app: street-view
     spec:
       containers:
-        - image: 12345678hacker/street-view:team
+        - image: 12345678hacker/street-view:pwa
           name: street-view
           ports:
             - containerPort: 8080
